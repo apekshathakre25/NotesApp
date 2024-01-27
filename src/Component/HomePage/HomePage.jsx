@@ -29,8 +29,6 @@ const HomePage = () => {
           {Array.isArray(groups) &&
             groups.map((group, index) => (
               <CreateGroup
-                groups={groups}
-                setGroups={setGroups}
                 key={index}
                 groupName={group.name}
                 isActive={isActive}
