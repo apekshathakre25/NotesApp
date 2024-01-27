@@ -9,8 +9,8 @@ const CreateNotes = () => {
         <div></div>
         <p></p>
       </div>
-      <div className={css.main}>
-        <div className={css.displayArea}>
+      <div className={css.NotesContainer}>
+        <div className={css.NoteBox}>
           <p>
             Another productive way to use this tool to begin a daily writing
             routine. One way is to generate a random paragraph with the
@@ -22,8 +22,8 @@ const CreateNotes = () => {
           <p>time</p>
         </div>
       </div>
-      <div className={css.footer}>
-        <div className={css.textarea}>
+      <div className={css.textareaContainer}>
+        <div className={css.textareaBox}>
           <textarea name="" id="" cols="30" rows="10"></textarea>
           <img className={css.pointer} src={pointer} alt="" />
         </div>

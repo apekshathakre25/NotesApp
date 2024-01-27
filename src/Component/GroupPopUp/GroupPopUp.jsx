@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import css from "../GroupPopUp/GroupPopUp.module.css";
 
-const GroupPopUp = ({onCreateGroup}) => {
+const GroupPopUp = ({ onCreateGroup }) => {
   const [groupName, setGroupName] = useState(" ");
 
   const handleInput = (event) => {
