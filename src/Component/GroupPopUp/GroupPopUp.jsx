@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "../GroupPopUp/GroupPopUp.module.css";
 
-const GroupPopUp = () => {
+const GroupPopUp = ({onCreateGroup}) => {
+  const [groupName, setGroupName] = useState(" ");
+
+  const handleInput = (event) => {
+    setGroupName(event.target.value);
+  };
+
+  const handleCreate = () => {
+    onCreateGroup(groupName);
+    setGroupName(" ");
+  };
+
   return (
     <div className={css.overlay}>
       <div className={css.selectionPage}>
@@ -12,6 +23,8 @@ const GroupPopUp = () => {
             type="text"
             className={css.input}
             placeholder="Enter Group Name"
+            value={groupName}
+            onChange={handleInput}
           />
         </div>
         <div className={css.choiceDiv}>
@@ -24,7 +37,9 @@ const GroupPopUp = () => {
           <div className={css.chooseColor6}></div>
         </div>
         <div>
-          <button className={css.create}>Create</button>
+          <button className={css.create} onClick={handleCreate}>
+            Create
+          </button>
         </div>
       </div>
     </div>

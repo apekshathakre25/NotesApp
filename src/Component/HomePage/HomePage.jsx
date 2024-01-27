@@ -11,14 +11,33 @@ import CreateNotes from "../CreateNotes/CreateNotes.jsx";
 const HomePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [groups, setGroups] = useState([]);
+
   const handleAddClick = () => {
     setIsPopupOpen(!isPopupOpen);
+  };
+
+  const handleCreateGroup = (groupName) => {
+    setGroups([...groups, { name: groupName }]);
+    setIsPopupOpen(false);
   };
   return (
     <div className={css.container}>
       <div className={css.leftSide}>
         <h3>Pocket Notes</h3>
-        <CreateGroup isActive={isActive} setIsActive={setIsActive} />
+        <div className={css.groupsContainer}>
+          {Array.isArray(groups) &&
+            groups.map((group, index) => (
+              <CreateGroup
+                groups={groups}
+                setGroups={setGroups}
+                key={index}
+                groupName={group.name}
+                isActive={isActive}
+                setIsActive={setIsActive}
+              />
+            ))}
+        </div>
         <div className={css.Button}>
           <img src={button} alt="Button Image" />
           <p onClick={handleAddClick} className={css.add}>
@@ -47,7 +66,7 @@ const HomePage = () => {
           </div>
         </div>
       )}
-      {isPopupOpen ? <GroupPopUp /> : <></>}
+      {isPopupOpen ? <GroupPopUp onCreateGroup={handleCreateGroup} /> : <></>}
     </div>
   );
 };
