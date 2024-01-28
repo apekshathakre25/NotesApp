@@ -1,8 +1,10 @@
 .Notes {
   background: #dae5f5;
-  width: 70vw;
+  width: 75vw;
   height: 100vh;
+  overflow-x: hidden; /* Hide horizontal scroll */
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -11,7 +13,27 @@
   gap: 2.4rem;
   padding: 0 2.4rem;
   background-color: #001f8b;
+  overflow-x: hidden;
 }
+.groupInitials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-radius: 50%;
+  background-color: #ff79f2;
+  color: #fff;
+  min-width: 4rem;
+  min-height: 4rem;
+  aspect-ratio: 1/1;
+}
+.groupName {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .NotesContainer {
   flex-grow: 1;
   display: flex;
@@ -19,6 +41,8 @@
   max-height: calc(100dvh - 23rem);
   flex-direction: column;
   padding: 1rem 3rem;
+  overflow-y: auto; /* Enable scrolling */
+  overflow-x: hidden;
 }
 
 .NoteBox {
@@ -28,25 +52,29 @@
   height: auto;
   text-wrap: wrap;
   gap: 2.4rem;
-  background-color: var(--color-white);
+  background-color: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 4px 20px #00000040;
   border-radius: 9px;
 }
+.notes {
+  font-size: 1.2rem;
+}
 
 .textareaContainer {
-  padding: 1.4rem;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem; /* Adjust padding as needed */
   background-color: #001f8b;
-  width: 92%;
-  height: 20vh;
-  margin-top: 10rem;
+  width: 72.9%; /* Adjust width percentage */
+  height: 200px; /* Adjust fixed height */
 }
 
 .textareaBox {
   position: relative;
   display: flex;
   width: 100%;
-  height: 21vh;
+  height: 100%;
 }
 
 .textareaBox > textarea {
@@ -56,10 +84,17 @@
   font-size: 1.2rem;
   letter-spacing: 0.05rem;
   padding: 1.5rem 3rem 1.5rem 1.5rem;
+  overflow-wrap: break-word; /* Prevent long words from breaking layout */
 }
 .pointer {
   position: absolute;
   right: 0.9rem;
   bottom: 2.6rem;
   cursor: pointer;
+}
+.timestamp {
+  display: flex;
+  gap: 1rem;
+  align-self: flex-end;
+  font-weight: 500;
 }

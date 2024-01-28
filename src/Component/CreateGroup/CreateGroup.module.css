@@ -1,34 +1,37 @@
 .profile {
-    /* height: 3.5vh; */
-    /* background: #2f2f2f2b; */
-    /* width: 25vw; */
-    gap: 2rem;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    padding: 0.5rem 4.5rem;
-    text-decoration: none;
+  gap: 2rem;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 1.5rem;
+  padding: 0.5rem 4.5rem;
+  text-decoration: none;
+}
+.profile:hover {
+  background: rgba(47, 47, 47, 0.17);
+}
+.activeProfile {
+  background: rgba(47, 47, 47, 0.17);
+  border: 1px solid rgba(47, 47, 47, 0.4);
   }
-  .profile:hover {
-    background: #2f2f2f2b;
-  }
-  .activeProfile {
-    background: #2f2f2f2b;
-  }
-  .initials {
-    border-radius: 50%;
-    height: 3.3rem;
-    width: 3.2rem;
-    background-color: aqua;
   
-    /* position: fixed; */
-  }
-  .selected > p {
-    font-size: large;
-  }
-  /* .gg{
-      color: aqua;
-    } */
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-radius: 50%;
+  background-color: #ff79f2;
+  color: #fff;
+  min-width: 4rem;
+  min-height: 4rem;
+  aspect-ratio: 1/1;
+}
+
+.groupName {
+  font-size: 1.5rem;
+  font-weight: 500;
+}

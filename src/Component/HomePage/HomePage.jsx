@@ -12,7 +12,7 @@ const HomePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [groups, setGroups] = useState([]);
-
+  
   const handleAddClick = () => {
     setIsPopupOpen(!isPopupOpen);
   };
@@ -20,6 +20,10 @@ const HomePage = () => {
   const handleCreateGroup = (groupName) => {
     setGroups([...groups, { name: groupName }]);
     setIsPopupOpen(false);
+  };
+
+  const handleGroupClick = (groupName) => {
+    setIsActive(groupName);
   };
   return (
     <div className={css.container}>
@@ -31,8 +35,8 @@ const HomePage = () => {
               <CreateGroup
                 key={index}
                 groupName={group.name}
-                isActive={isActive}
-                setIsActive={setIsActive}
+                isActive={group.name === isActive}
+                setIsActive={() => handleGroupClick(group.name)}
               />
             ))}
         </div>
@@ -44,7 +48,7 @@ const HomePage = () => {
         </div>
       </div>
       {isActive ? (
-        <CreateNotes />
+        <CreateNotes groupName={isActive}/>
       ) : (
         <div className={css.rightSide}>
           <div>
@@ -70,3 +74,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
