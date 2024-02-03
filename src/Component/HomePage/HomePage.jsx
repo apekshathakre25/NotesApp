@@ -12,7 +12,7 @@ const HomePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [groups, setGroups] = useState([]);
-  
+
   const handleAddClick = () => {
     setIsPopupOpen(!isPopupOpen);
   };
@@ -48,7 +48,7 @@ const HomePage = () => {
         </div>
       </div>
       {isActive ? (
-        <CreateNotes groupName={isActive}/>
+        <CreateNotes groupName={isActive} />
       ) : (
         <div className={css.rightSide}>
           <div>
@@ -74,4 +74,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
